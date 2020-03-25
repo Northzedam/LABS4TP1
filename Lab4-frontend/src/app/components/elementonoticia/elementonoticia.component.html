@@ -15,13 +15,12 @@
       [(ngModel)]="noticia.resumen_de_la_noticia" required>
   </div>
   <div>
-    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="uploadForm">
       <div class="input-group-text">
         <span class="btn" id="basic-addon1">Imagen de la noticia</span>
         <input type="file" name="file" (change)="onFileSelect($event)" [(ngModel)]="noticia.imagen_noticia"
           [ngModelOptions]="{standalone:true}"/>
       </div>
-      <button class="btn btn-primary btn-block" type="submit">Subir Imagen</button>
     </form>
   </div>
   <br>

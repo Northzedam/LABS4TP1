@@ -1,5 +1,6 @@
 package com.laboratorio.demo.services;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,30 +9,59 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.laboratorio.demo.dtos.NoticiaDto;
 import com.laboratorio.demo.entities.Empresa;
 import com.laboratorio.demo.entities.Noticia;
 import com.laboratorio.demo.repositories.EmpresaRepository;
 import com.laboratorio.demo.repositories.NoticiaRepository;
+import com.laboratorio.demo.BackendLaboratorioApplication;
 
 @Service
 public class NoticiaService {
 
+
 	private final NoticiaRepository repository;
 	private final EmpresaRepository repositorio2;
-	private String upload_folder = ".//src//main//resources//files//";
-
+	private String upload_folder = String.valueOf(BackendLaboratorioApplication.getHome() +"\\files\\").replace("\\","/");
+	
+	
 	public NoticiaService(NoticiaRepository repository, EmpresaRepository repositorio2) {
 		this.repository = repository;
 		this.repositorio2 = repositorio2;
 
 	}
+	
+	@Transactional
+	public String getMaxID() throws Exception{
+		try {
+			 return repository.maximoIDnoticia();
+		}catch(Exception e) {
+			throw new Exception();
+		}
+	}
+	
+	@Transactional
+	public String getPathImages() {
+		return this.upload_folder;
+	}
 
+	@Transactional
 	public void saveFile(MultipartFile file) throws IOException {
+		System.out.println(BackendLaboratorioApplication.getHome());
+		 File directorio = new File(BackendLaboratorioApplication.getHome()+"//files");
+	        if (!directorio.exists()) {
+	            if (directorio.mkdirs()) {
+	                System.out.println("Directorio creado");
+	            } else {
+	                System.out.println("Error al crear directorio");
+	            }
+	        }
 		if (!file.isEmpty()) {
 			byte[] bytes = file.getBytes();
 			Path path = Paths.get(upload_folder + file.getOriginalFilename());
