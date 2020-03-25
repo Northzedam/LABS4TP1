@@ -25,7 +25,7 @@ public class Empresa {
 	@Size(min = 1, max = 256)
 	private String domicilio;
 	@Size(min = 1, max = 75)
-	private String email;
+	private String email; 
 
 	public Empresa() {
 	}

@@ -3,7 +3,7 @@ package com.laboratorio.demo.controllers;
 import java.io.IOException;
 import javax.transaction.Transactional;
 
-import org.json.JSONObject;
+//import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -37,7 +37,7 @@ public class NoticiaController {
 	@Transactional
 	public ResponseEntity getMaxID() {
 		try {
-			return ResponseEntity.status(HttpStatus.OK).body(JSONObject.quote(servicio.getMaxID()));
+			return ResponseEntity.status(HttpStatus.OK).body(servicio.getMaxID());
 		}catch(Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body("{\"message\":\"Ha ocurrido un error al obtener el id maximo de noticia\"}");
@@ -48,7 +48,7 @@ public class NoticiaController {
 	@Transactional
 	public ResponseEntity getPathImages() {
 		try {
-			return ResponseEntity.status(HttpStatus.OK).body(JSONObject.quote(servicio.getPathImages()));
+			return ResponseEntity.status(HttpStatus.OK).body(servicio.getPathImages());
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body("{\"message\":\"Ha ocurrido un error al obtener la direccion de la imagen\"}");
