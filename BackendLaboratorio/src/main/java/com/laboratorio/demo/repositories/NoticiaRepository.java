@@ -1,0 +1,17 @@
+package com.laboratorio.demo.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.laboratorio.demo.entities.Noticia;
+
+@Repository
+public interface NoticiaRepository extends JpaRepository<Noticia,Integer>{
+	
+	@Query("from Noticia n where n.titulo_de_la_noticia like %?1% or n.resumen_de_la_noticia like %?1%")
+	List<Noticia> buscarPorNombre(String consulta);	
+	
+}
