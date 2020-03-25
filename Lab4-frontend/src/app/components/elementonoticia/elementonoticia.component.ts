@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { EmpresaService } from './../../services/empresa.service';
 import { Empresa } from './../../model/empresa';
@@ -16,6 +17,8 @@ export class ElementonoticiaComponent implements OnInit {
 
   public empresas: Empresa[];
   _url = 'http://localhost:9000/api/v1/noticia/upload';
+  _urlmaxid = 'http://localhost:9000/api/v1/noticia/maxid';
+  _urlRecoverImage = 'http://localhost:9000/api/v1/noticia/recoverUpload';
   uploadForm: FormGroup;
 
   noticia: Noticia = {
@@ -30,9 +33,9 @@ export class ElementonoticiaComponent implements OnInit {
   };
 
   constructor(private noticiaService: NoticiaService, private router: Router,
-              private actRoute: ActivatedRoute, private empresaService: EmpresaService,
-              private formBuilder: FormBuilder, private http: HttpClient) {
-      this.actRoute.params.subscribe((data) => {
+    private actRoute: ActivatedRoute, private empresaService: EmpresaService,
+    private formBuilder: FormBuilder, private http: HttpClient) {
+    this.actRoute.params.subscribe((data) => {
       if (data['id'] !== 'nueva') {
         this.getOne(data['id']);
       }
@@ -57,8 +60,28 @@ export class ElementonoticiaComponent implements OnInit {
   }
 
   add() {
+    let maxID = this.http.get(this._urlmaxid).subscribe((res)=>{
+      console.log("res",res);
+      /*if(res === ""){
+        this.noticia.imagen_noticia = this._urlRecoverImage + "1" + ".jpg";
+      }else{
+        this.noticia.imagen_noticia = this._urlRecoverImage + res + ".jpg";
+      }*/
+    })
     this.noticiaService.post(this.noticia).subscribe(
       res => {
+        const formData = new FormData();
+        formData.append('file', this.uploadForm.get('file').value, res.id.toString()+".jpg");
+        this.http.post<any>(this._url, formData).subscribe( res => {
+          console.log(res);
+        },
+          err => console.log(err)
+        );
+        this.http.get(this._urlRecoverImage).subscribe((res)=>{
+          console.log(res);
+        }, (error)=>{
+          console.log(error);
+        });
         alert('Noticia agregada correctamente');
         this.router.navigate(['tabla/noticia']);
       },
@@ -104,13 +127,13 @@ export class ElementonoticiaComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  /*onSubmit() {
     const formData = new FormData();
     formData.append('file', this.uploadForm.get('file').value);
     this.http.post<any>(this._url, formData).subscribe(
       res => console.log(res),
       err => console.log(err)
     );
-  }
+  }*/
 
 }

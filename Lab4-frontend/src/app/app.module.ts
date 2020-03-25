@@ -22,6 +22,10 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AgmCoreModule } from '@agm/core';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatTableModule } from '@angular/material/table';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,8 @@ import { AgmCoreModule } from '@agm/core';
     ElementohomeComponent,
     ElementodetalleComponent,
     Page404Component,
-    BuscadorComponent
+    BuscadorComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,9 @@ import { AgmCoreModule } from '@agm/core';
     AutocompleteLibModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    MatTableModule,
+    NgxPaginationModule,
+
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
     })

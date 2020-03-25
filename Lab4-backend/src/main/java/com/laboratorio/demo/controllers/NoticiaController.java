@@ -2,6 +2,8 @@ package com.laboratorio.demo.controllers;
 
 import java.io.IOException;
 import javax.transaction.Transactional;
+
+import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,6 +31,28 @@ public class NoticiaController {
 
 	public NoticiaController(NoticiaService servicio) {
 		this.servicio = servicio;
+	}
+	
+	@GetMapping("/maxid")
+	@Transactional
+	public ResponseEntity getMaxID() {
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(JSONObject.quote(servicio.getMaxID()));
+		}catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+					.body("{\"message\":\"Ha ocurrido un error al obtener el id maximo de noticia\"}");
+		}
+	}
+
+	@GetMapping("/recoverUpload")
+	@Transactional
+	public ResponseEntity getPathImages() {
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(JSONObject.quote(servicio.getPathImages()));
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+					.body("{\"message\":\"Ha ocurrido un error al obtener la direccion de la imagen\"}");
+		}
 	}
 
 	@PostMapping("/upload")

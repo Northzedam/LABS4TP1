@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class TablaempresaComponent implements OnInit {
 
+  pageActual: number = 1;
   public empresas: Empresa[];
   indice: number;
 
