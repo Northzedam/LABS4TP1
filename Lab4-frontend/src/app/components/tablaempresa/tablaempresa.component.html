@@ -23,10 +23,12 @@
                             <th scope="col">Domicilio</th>
                             <th scope="col" hidden>Email</th>
                             <th scope="col">Acciones</th>
+                            <th scope="col">&nbsp;</th >
+
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let i of empresas | paginate: { itemsPerPage: 6, currentPage: pageActual }">
+                        <tr *ngFor="let i of empresas ">
                             <th scope="row">{{i.id}}</th>
                             <td>{{i.denominacion}}</td>
                             <td>{{i.telefono}}</td>
@@ -38,12 +40,14 @@
                             <td hidden>{{i.email}}</td>
                             <td>
                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalEmpresa" (click)="onPreUpdate(i)">Update</button>
+                            </td>
+                            <td>
                                 <button type="button" class="btn btn-danger" (click)="delete(i)">Delete</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+
             </div>
         </div>
     </div>

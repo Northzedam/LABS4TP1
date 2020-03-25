@@ -22,10 +22,12 @@
               <th scope="col">Fecha</th>
               <th scope="col">Empresa</th>
               <th scope="col">Acciones</th>
+              <th scope="col">&nbsp;</th >
+
             </tr>
           </thead>
           <tbody align="center">
-            <tr *ngFor="let i of noticias | paginate: { itemsPerPage: 6, currentPage: pageActual }">
+            <tr *ngFor="let i of noticias ">
               <th scope="row">{{i.id}}</th>
               <td>{{i.titulo_de_la_noticia}}</td>
               <td hidden>{{i.resumen_de_la_noticia}}</td>
@@ -37,12 +39,14 @@
                 <a href="/home/{{i.idEmpresa}}">Pagina de la Empresa</a></td>
               <td>
                 <button type="button" class="btn btn-warning" (click)="update(i.id)">Update</button>
+              </td>
+              <td>
                 <button type="button" class="btn btn-danger" (click)="delete(i)">Delete</button>
               </td>
             </tr>
           </tbody>
         </table>
-        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+
       </div>
     </div>
   </div>
