@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablanoticiaComponent implements OnInit {
 
+  pageActual: number = 1;
+  
   public noticias: Noticia[];
   public noticia: Noticia = {
     id: 0,

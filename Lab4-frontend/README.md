@@ -13,9 +13,8 @@
 
 ## Importaciones Necesarias
 	- AutoComplete: npm i angular-ng-autocomplete
-	- Carousel: npm i @bit/valor-software.ngx-bootstrap.carousel
 	- TinyMCE: npm install --save @tinymce/tinymce-angular
 	- Jquery, Pooper y Bootstrap: npm install --save jquery popper.js bootstrap
 	- Google Maps: npm install @agm/core --save
-	-Prueba 1
+	-
 	
