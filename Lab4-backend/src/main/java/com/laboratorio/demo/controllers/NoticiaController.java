@@ -3,7 +3,7 @@ package com.laboratorio.demo.controllers;
 import java.io.IOException;
 import javax.transaction.Transactional;
 
-import org.json.simple.JSONObject;
+import org.json.simple.JSONObject; // el import no es asi, es org.json.JSONObject
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
