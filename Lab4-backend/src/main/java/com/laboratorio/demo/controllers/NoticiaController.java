@@ -3,7 +3,7 @@ package com.laboratorio.demo.controllers;
 import java.io.IOException;
 import javax.transaction.Transactional;
 
-import org.json.simple.JSONObject; // el import no es asi, es org.json.JSONObject
+import org.json.JSONObject; // el import no es asi, es org.json.JSONObject
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,7 +33,7 @@ public class NoticiaController {
 		this.servicio = servicio;
 	}
 	
-	/*	@GetMapping("/maxid")
+		@GetMapping("/maxid")
 	@Transactional
 	public ResponseEntity getMaxID() {
 		try {
@@ -54,7 +54,7 @@ public class NoticiaController {
 					.body("{\"message\":\"Ha ocurrido un error al obtener la direccion de la imagen\"}");
 		}
 	}
-*/
+
 	@PostMapping("/upload")
 	@Transactional
 	public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) {
