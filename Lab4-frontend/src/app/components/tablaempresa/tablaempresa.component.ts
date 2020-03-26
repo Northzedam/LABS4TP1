@@ -29,7 +29,7 @@ export class TablaempresaComponent implements OnInit {
   constructor(private empresaService: EmpresaService) { }
 
   ngOnInit() {
-    this.getAllEmpresas();
+    //this.getAllEmpresas();
   }
 
   getAllEmpresas() {

@@ -11,9 +11,9 @@
         <div class="row mt-2">
             <div class="col">
                 <table class="table">
-                    <thead class="thead-dark">
+                    <thead class="thead-primary">
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col" hidden>#</th>
                             <th scope="col">Denominación</th>
                             <th scope="col">Teléfono</th>
                             <th scope="col">Horario</th>
@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let i of empresas | paginate: { itemsPerPage: 6, currentPage: pageActual }">
+                        <tr *ngFor="let i of empresas"><!-- | paginate: { itemsPerPage: 6, currentPage: pageActual }"-->
                             <th scope="row">{{i.id}}</th>
                             <td>{{i.denominacion}}</td>
                             <td>{{i.telefono}}</td>
@@ -43,7 +43,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+               <!-- <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>  -->
             </div>
         </div>
     </div>

@@ -25,7 +25,7 @@
             </tr>
           </thead>
           <tbody align="center">
-            <tr *ngFor="let i of noticias | paginate: { itemsPerPage: 6, currentPage: pageActual }">
+            <tr *ngFor="let i of noticias"><!--| paginate: { itemsPerPage: 6, currentPage: pageActual }"-->
               <th scope="row">{{i.id}}</th>
               <td>{{i.titulo_de_la_noticia}}</td>
               <td hidden>{{i.resumen_de_la_noticia}}</td>
