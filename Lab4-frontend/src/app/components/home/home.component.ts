@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     this.actRoute.params.subscribe(data => {
       if (data['id']) {
         this.getOne(data['id']);
-       // this.getFive(data['id']);
+        this.getFive(data['id']);
       }
     });
   }

@@ -11,9 +11,9 @@
     <div class="row mt-2">
       <div class="col">
         <table class="table">
-          <thead class="thead-dark" align="center">
+          <thead class="thead-light" align="center">
             <tr>
-              <th scope="col">#</th>
+              <th scope="col"hidden>#</th>
               <th scope="col">Título</th>
               <th scope="col" hidden>Resumen</th>
               <th scope="col" hidden>Imagen</th>
@@ -26,7 +26,7 @@
           </thead>
           <tbody align="center">
             <tr *ngFor="let i of noticias"><!--| paginate: { itemsPerPage: 6, currentPage: pageActual }"-->
-              <th scope="row">{{i.id}}</th>
+              <th scope="row"hidden>{{i.id}}</th>
               <td>{{i.titulo_de_la_noticia}}</td>
               <td hidden>{{i.resumen_de_la_noticia}}</td>
               <td hidden>{{i.imagen_noticia}}</td>
@@ -37,6 +37,7 @@
                 <a href="/home/{{i.idEmpresa}}">Pagina de la Empresa</a></td>
               <td>
                 <button type="button" class="btn btn-warning" (click)="update(i.id)">Update</button>
+                &nbsp;
                 <button type="button" class="btn btn-danger" (click)="delete(i)">Delete</button>
               </td>
             </tr>
