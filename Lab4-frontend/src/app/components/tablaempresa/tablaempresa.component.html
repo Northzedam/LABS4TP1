@@ -11,7 +11,7 @@
         <div class="row mt-2">
             <div class="col">
                 <table class="table">
-                    <thead class="thead-primary">
+                    <thead class="thead-light">
                         <tr>
                             <th scope="col" hidden>#</th>
                             <th scope="col">Denominación</th>
@@ -27,7 +27,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let i of empresas"><!-- | paginate: { itemsPerPage: 6, currentPage: pageActual }"-->
-                            <th scope="row">{{i.id}}</th>
+                            <th scope="row"hidden>{{i.id}}</th>
                             <td>{{i.denominacion}}</td>
                             <td>{{i.telefono}}</td>
                             <td>{{i.horario_de_atencion}}</td>
@@ -38,6 +38,7 @@
                             <td hidden>{{i.email}}</td>
                             <td>
                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalEmpresa" (click)="onPreUpdate(i)">Update</button>
+                                &nbsp;
                                 <button type="button" class="btn btn-danger" (click)="delete(i)">Delete</button>
                             </td>
                         </tr>

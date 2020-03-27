@@ -1,22 +1,19 @@
 <section>
-    <div class="navbar">
-        <h1 class="ml-4">
-            <a href="/home/{{this.empresa.id}}" style="color:white"><small>{{this.empresa.denominacion}}</small></a>
-        </h1>
-        <div class="help-box text-right mr-3">
-            <small>
-            <span style="color:white">Telefono</span>
-            <br>
-            <h2><a href="callto:#">{{this.empresa.telefono}}</a></h2>
-        </small>
-            <br>
-            <small>
-            <span style="color:white">Horario</span>
-            <br>
-            <h2 style="color:gray">{{this.empresa.horario_de_atencion}}</h2>
-        </small>
-        </div>
-    </div>
+ 
+    
+    <nav id="navbar-light" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">{{this.empresa.denominacion}}</a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <span>Telefono: {{this.empresa.telefono}}</span>
+            &nbsp;&nbsp;
+            <span>Horario: {{this.empresa.horario_de_atencion}}</span>
+          </li>
+                
+        </ul>
+      </nav>
+
+
     <div class="container">
         <h4 class="mt-2">Buscar por:</h4>
         <select class="select" [(ngModel)]="keyword">

@@ -1,23 +1,4 @@
-<!--
-<div class="navbar">
-    <h1 class="ml-4">
-        <a href="/home/{{this.empresa.id}}" style="color:white"><small>{{this.empresa.denominacion}}</small></a>
-    </h1>
-    <div class="help-box text-right mr-3">
-        <small>
-            <span style="color:white">Telefono</span>
-            <br>
-            <h2><a href="callto:#">{{this.empresa.telefono}}</a></h2>
-        </small>
-        <br>
-        <small>
-            <span style="color:white">Horario</span>
-            <br>
-            <h2 style="color:gray">{{this.empresa.horario_de_atencion}}</h2>
-        </small>
-    </div>
-</div>
--->
+
 <nav id="navbar-light" class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">{{this.empresa.denominacion}}</a>
     <ul class="nav nav-pills">
@@ -55,34 +36,7 @@
 <!--<img src="/63.jpg">-->
 <section class="mt-3 ml-5 mr-5 mb-2" align="center">
     <div class="bd-example">
-        <!--<div id="carouselExampleCaptions" class="carousel" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img height="600px" src="{{this.noticias1.imagen_noticia}}" class="avatar d-block w-100" alt="{{this.noticias1.id}} slice" (click)="goNoticia(this.noticias1.id)">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{this.noticias1.titulo_de_la_noticia}}</h5>
-                        <p>{{this.noticias1.resumen_de_la_noticia}}</p>
-                    </div>
-                </div>
-                <div class="carousel-item" *ngFor="let imagen of noticias">
-                    <img height="600px" src="{{imagen.imagen_noticia}}" class="avatar d-block w-100" alt="{{imagen.id}} slice" (click)="goNoticia(imagen.id)">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{imagen.titulo_de_la_noticia}}</h5>
-                        <p>{{imagen.resumen_de_la_noticia}}</p>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" style="width: 30%;height: 30%;" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" style="width: 30%;height: 30%;" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-            </a>
-        </div>-->
-
-        <!-- a continuacion Carrousel de ejemplo-->
+      
         <div class=" row justify-content-center">
             <div class="col-8">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
